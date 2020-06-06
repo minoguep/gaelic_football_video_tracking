@@ -23,10 +23,10 @@ ball_found = False  # determines if the ball has been located within a frame
 object_lost_count = 0  # counter to track the number of consecuative frames the ball has been lost by the YOLO model
 tracked_points = deque(maxlen=128)  # list-like structure we will use to store the ball locations from each frame
 ball_found_initially = None  # flags when we have found the ball for the first time
-frame_number = 0 # tracks frame number (for logging)
-prediction_count = 0 # tracks number of predictions made
-confidence_threshold = 0.5 # confidence threshold for yolo model to detect object
-suppression_threshold = 0.3
+frame_number = 0  # tracks frame number (for logging)
+prediction_count = 0  # tracks number of predictions made
+confidence_threshold = 0.5  # confidence threshold for yolo model to detect object
+suppression_threshold = 0.3  # will be used when we apply non-maxima suppression to identify balls bounding box
 
 
 input_video = args["video"]
@@ -87,7 +87,7 @@ while True:
                 confidences.append(float(confidence))
                 classIDs.append(classID)
 
-    # apply non-maxima suppression to suppress weak, overlapping bounding boxes
+    # apply non-maxima suppression to refine the balls bounding box
     idxs = cv2.dnn.NMSBoxes(boxes, confidences, confidence_threshold, suppression_threshold)
 
     # ensure at least one detection exists
