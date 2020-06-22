@@ -90,6 +90,7 @@ while True:
     # apply non-maxima suppression to refine the balls bounding box
     idxs = cv2.dnn.NMSBoxes(boxes, confidences, confidence_threshold, suppression_threshold)
 
+    # TODO: TIDY THIS UP SO THAT WE ONLY ADD SPORTS BALL TO idxs
     # ensure at least one detection exists
     if len(idxs) > 0:
         # loop over the indexes we are keeping
@@ -125,8 +126,6 @@ while True:
 
     # basically if we have lost the ball and it is not too early or late in the video, let's make a prediction
     if ball_found_initially and (object_lost_count >= 10) and (len(tracked_points) > 100) and (prediction_count <= 10):
-        x_train = [pt[0] for pt in tracked_points]
-        x_train.reverse()
 
         # fit a simple linear regression model to predict the next x position
         x_train = x_train[-20:]

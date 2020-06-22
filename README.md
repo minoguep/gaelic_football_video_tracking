@@ -1,13 +1,15 @@
 # Gaelic Football Tracking
 
-This repo contains the code for a simple ball tracking tool which wil be the topic of an upcoming blog post on [my website](https://paulminogue.com/). This approach leverages OpenCV, the YOLO model, and scipy's curve fitting functionality to track the trajectory of a ball within a video.
+This repo contains the code for the simple ball tracking tool discussed in my [blog post](https://paulminogue.com/index.php/2020/06/22/using-opencv-scipy-and-scikit-learn-to-develop-a-simple-gaelic-football-tracking-system/). This approach leverages OpenCV, the YOLO model, and scipy's curve fitting functionality to track the trajectory of a ball within a video.
 
 ## Example outputs
 
 *Example 1*:
+
 ![Alt Text](data/gifs_for_markdown/example_1.gif)
 
 *Example 2*:
+
 ![Alt Text](data/gifs_for_markdown/example_2.gif)
 
 ## Project structure
