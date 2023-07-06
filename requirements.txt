@@ -3,6 +3,6 @@ joblib==0.15.1
 numpy==1.18.5
 opencv-contrib-python==4.2.0.34
 scikit-learn==0.23.1
-scipy==1.4.1
+scipy==1.10.0
 sklearn==0.0
 threadpoolctl==2.1.0
